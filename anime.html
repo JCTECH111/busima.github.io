@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Ball Animation</title>
+    <!-- GSAP core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+
+    <!-- ScrollTrigger plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+
+    <!-- MotionPathPlugin for animating along a path -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/MotionPathPlugin.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            height: 300vh; /* Allow enough scroll space */
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #d0e7ff, #fff); /* Simulate a sky-like background */
+            perspective: 1000px; /* Add perspective for 3D effect */
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        svg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotateX(20deg) rotateY(0deg); /* Slight 3D tilt */
+        }
+
+        .ball {
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow for a 3D effect */
+        }
+
+        .hole {
+            position: absolute;
+            top: 2000px; /* Place hole lower in the vertical scroll */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            border-radius: 50%;
+            box-shadow: inset 0px 10px 20px rgba(0, 0, 0, 0.5); /* Add a 3D-like shadow */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg width="100%" height="100%">
+          <!-- Long, vertical curved transparent pipe -->
+          <path id="pipe-path" fill="none" stroke="rgba(0, 128, 0, 0.3)" stroke-width="30"
+            d="M50,150 Q200,300 50,500 T50,1000
+            T100,1500 T50,2000 T100,2500" />
+        </svg>
+
+        <!-- Ball -->
+        <div class="ball"></div>
+
+        <!-- Hole -->
+        <div class="hole"></div>
+    </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
+        // Animate the ball along the vertical, curved SVG path
+        gsap.to(".ball", {
+            scrollTrigger: {
+                trigger: ".container",
+                start: "top top",  // Animation starts when the container is at the top of the viewport
+                end: "bottom bottom", // Animation ends at the bottom of the viewport
+                scrub: true // Ball moves with scroll
+            },
+            motionPath: {
+                path: "#pipe-path", // Use the long SVG path as the motion guide
+                align: "#pipe-path", // Align the ball along the path
+                alignOrigin: [0.5, 0.5], // Center the ball on the path
+            },
+            duration: 10, // Duration for the entire motion along the path
+            rotation: 1440, // Make the ball spin as it moves (multiple full spins)
+            ease: "none" // Smooth movement
+        });
+
+        // Make the ball disappear when it reaches the hole
+        gsap.to(".ball", {
+            scrollTrigger: {
+                trigger: ".hole",
+                start: "top center", // When the hole is in the center of the viewport
+                end: "bottom center",
+                scrub: true,
+                onEnter: () => {
+                    gsap.to(".ball", {
+                        scale: 0, // Shrink the ball
+                        opacity: 0, // Fade out
+                        duration: 1
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

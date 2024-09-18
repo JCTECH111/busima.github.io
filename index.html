@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busima - Business Consultant</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 ">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease-in-out;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        .view_box {
+            background-image: linear-gradient(to right, rgba(10, 7, 187, 0.6), rgba(10, 7, 187, 0.356), rgba(255, 255, 255, 0)), url('./asset/f0230704-800px-wm.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .discover_btn {
+            width: 5cm;
+        }
+        
+        .blue {
+            color: rgb(98, 152, 240);
+        }
+        
+        
+        .features {
+            top: 13cm;
+        }
+        
+        .grid_container {
+            height: 20cm;
+            padding: 3cm;
+        }
+        
+        .grid-bg {
+            background-image: url('./asset/Business-Meeting-Tips-for-Meeting-Americans.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        
+            .rating {
+                position: absolute;
+                bottom: 3rem;
+                right: 2rem;
+            }
+        }
+        
+        .connect {
+            background: rgba(26, 22, 218, 0.6);
+        }
+        
+        .main {
+            height: 12cm;
+        }
+        
+        .main2 {
+            height: 13cm;
+        }
+        
+        .discover_child {
+            left: 20%;
+            top: 10cm;
+        }
+        
+        .video_container {
+            background-image: url('./asset/officeworkers-1024x480.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            height: 10cm;
+        
+            .circle {
+                height: 4rem;
+                width: 4rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                border: 2px solid white;
+                font-size: 1.2rem;
+                position: relative;
+                top: 40%;
+                left: 50%;
+            }
+        }
+        
+        .circle2 {
+            height: 5rem;
+            width: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: blue;
+            position: relative;
+            top: 5cm;
+            left: 70%;
+            cursor: pointer;
+        }
+        
+        @media (min-width: 640px) {
+            .sm\:h-3cm {
+                height: 14.6cm;
+            }
+        
+        }
+        
+        @media (max-width: 640px) {
+            .grid_container {
+                padding: 1rem;
+                height: auto;
+        
+                .grid-bg {
+                    height: 5cm;
+                }
+        
+                .rating {
+                    position: absolute;
+                    bottom: -0rem;
+                    right: 0rem;
+                }
+            }
+        
+            section {
+                overflow-x: hidden;
+            }
+        
+            .main2 {
+                height: auto;
+            }
+        
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </style>
+    <!-- Section with responsive height -->
+    <section class="view_box h-screen sm:h-3cm w-full px-5 sm:pl-9 ">
+        <div class="container mx-auto p-6 flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">busima</h1>
+            <nav>
+                <ul class="flex space-x-6 text-white hidden sm:flex">
+                    <li><a href="#" class="hover:text-gray-300 font-bold">Home</a></li>
+                    <li><a href="#" class="hover:text-gray-300 font-bold">About</a></li>
+                    <li><a href="#" class="hover:text-gray-300 font-bold">Services</a></li>
+                    <li><a href="#" class="hover:text-gray-300 font-bold">Portfolio</a></li>
+                    <li><a href="#" class="hover:text-gray-300 font-bold">Contact</a></li>
+                    <li><button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded">Get
+                            Started</button></li>
+                </ul>
+                <!-- Hamburger Menu Icon for Small Screens -->
+                <div class="sm:hidden">
+                    <button id="menu-toggle" class="text-white text-3xl focus:outline-none">
+                        <i class="fas fa-bars"></i> <!-- Font Awesome Hamburger Icon -->
+                    </button>
+                </div>
+            </nav>
+        </div>
+        <!-- Mobile Menu (initially hidden) -->
+        <nav id="mobile-menu"
+            class="fixed inset-0 bg-blue-600 p-4 hidden opacity-0 transform -translate-y-full transition-all duration-500 ease-in-out">
+            <div class="flex justify-between items-center mb-8">
+                <!-- Empty div for centering the X -->
+                <div></div>
+                <!-- X Icon for closing the menu -->
+                <button id="menu-close" class="text-white text-3xl focus:outline-none">
+                    <i class="fas fa-times"></i> <!-- Font Awesome "X" Icon -->
+                </button>
+            </div>
+
+            <ul class="flex flex-col justify-center space-y-6 text-white text-center h-full text-xl">
+                <li><a href="#" class="hover:text-gray-300 block w-full py-4">Home</a></li>
+                <li><a href="#" class="hover:text-gray-300 block w-full py-4">About</a></li>
+                <li><a href="#" class="hover:text-gray-300 block w-full py-4">Services</a></li>
+                <li><a href="#" class="hover:text-gray-300 block w-full py-4">Portfolio</a></li>
+                <li><a href="#" class="hover:text-gray-300 block w-full py-4">Contact</a></li>
+                <li>
+                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white w-full py-4 rounded">
+                        Get Started
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        <!-- T//ext content -->
+        <div class="flex flex-col gap-2 sm:ml-9 ml-3 sm:mt-7">
+            <h5 class=" text-white">WELCOME TO BUSIMA</h5>
+            <h3 class="text-5xl font-bold text-white">From strategy to <br> delivery, on time every <br> time.</h3>
+            <p class="text-white text-xl mt-4">We help you grow and manage your business efficiently, <br> Effective
+                planning for long-term success</p>
+            <button
+                class="discover_btn mt-6 inline-block bg-yellow-500  py-3 px-6 rounded hover:bg-yellow-600 font-bold ">Discover
+                More</button>
+        </div>
+    </section>
+    <section class="features w-full md:flex flex-row absolute items-center justify-center hidden">
+        <div class="md:flex flex-wrap items-center justify-center  bg-white px-6 py-8 gap-9  shadow-lg">
+            <div class="section flex align-items justify-center gap-4">
+                <i class="fas fa-book blue text-5xl"></i>
+                <p class="font-bold ">Business Planning, <br> Strategy & Execution </p>
+            </div>
+            <div class="section flex align-items justify-center gap-4">
+                <i class="fas fa-chart-line blue text-5xl"></i>
+                <p class="font-bold ">Business Planning, <br> Strategy & Execution </p>
+            </div>
+            <div class="section flex align-items justify-center gap-4">
+                <i class="fas fa-globe blue text-5xl"></i>
+                <p class="font-bold ">Business Planning, <br> Strategy & Execution </p>
+            </div>
+        </div>
+    </section>
+    <section class="grid grid-cols-1 md:grid-cols-2 w-full p-5 gap-4 grid_container">
+        <div class=" p-4 md:h-full">
+            <h5 class="blue">WHO WE ARE</h5>
+            <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mt-7">We create a culture that inspires us to work
+                smart,
+                together.</h3>
+            <p class="text-gray-500 mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus dolores quae
+                minima a ipsam quidem. Iste nostrum obcaecati vero assumenda. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Cum, officia.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 w-full mt-7">
+                <div class="border-2 border-gray-200 flex flex-col  items-center justify-center gap-4 p-3">
+                    <h1 class="text-5xl font-bold blue flex   items-center justify-center">4.7<i
+                            class="fas fa-plus text-3xl"></i></h1>
+                    <div class="star flex items-center justify-center gap-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                    </div>
+                    <h2 class="font-bold text-gray-600 text-xl">Review Customer </h2>
+                    <p class="text-gray-500 text-center">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+                </div>
+                <div class="border-2 border-gray-200 flex flex-col  items-center justify-center gap-4 p-3">
+                    <h1 class="text-5xl font-bold blue flex   items-center justify-center">B<i
+                            class="fas fa-plus text-3xl"></i></h1>
+                    <div class="star flex items-center justify-center gap-2">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                    </div>
+                    <h2 class="font-bold text-gray-600 text-xl">Business Class </h2>
+                    <p class="text-gray-500 text-center">Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-300 p-4 grid-bg md:h-full">
+            <div class="rating bg-yellow-500 md:w-64 w-52 md:h-24 h-16 flex items-center justify-center flex-col ">
+                <h1 class="md:text-4xl text-2xl font-bold flex items-center justify-center">15 <i
+                        class="fas fa-plus text-2xl"></i>
+                </h1>
+                <p>Years Experience</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="relative main">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-top"
+            style="background-image: url('./asset/istockphoto-541114144-612x612.jpg');"></div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 connect"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 p-8 text-white">
+            <div class="flex flex-col gap-2 sm:ml-9 ml-3 sm:mt-7">
+                <h3 class="md:text-4xl text-2xl font-bold text-white">Connecting businesses, <br> ideas, and people for
+                    greater <br>
+                    impact.</h3>
+                <p class="text-white text-xl mt-4">We help you grow and manage your business efficiently, <br> Effective
+                    planning for long-term success</p>
+                <button
+                    class="discover_btn mt-6 inline-block bg-yellow-500  py-3 px-6 rounded hover:bg-yellow-600 font-bold ">Discover
+                    More</button>
+
+            </div>
+            <div
+                class="md:flex hidden flex-wrap items-center justify-center  bg-white px-6 py-6 gap-14  shadow-lg absolute discover_child">
+                <h2 class="font-bold text-gray-600 text-3xl">We are ready to serve <br> you differently</h2>
+                <div class="section flex align-items justify-center ">
+                    <p class="text-gray-400 flex text-center"> Lorem ipsum dolor sit amet, consectetur <br>
+                        adipisicing elit. Aperiam obcaecati neque <br> tempore nobis molestiae nesciunt nemo
+                        voluptates?</p>
+                </div>
+                <div class="section flex flex-col align-items justify-center">
+                    <h2 class="text-4xl blue flex  align-items justify-center "><i class="fas fa-plus text-2xl"></i>72%
+                    </h2>
+                    <p class="font-bold text-gray-600">Success Project </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="solutions md:mt-32 mt-16 w-full px-4 md:px-32 flex flex-col gap-9">
+        <div class="grid grid-cols-1 md:grid-cols-2 w-full  gap-4  ">
+            <div class="flex flex-col gap-3">
+                <h5 class="blue mt-4">WHAT WE OFFER</h5>
+                <h1 class="text-3xl font-bold text-gray-600"> Developing solutions for the <br> future</h1>
+            </div>
+            <div class="flex flex-col gap-3">
+                <p class="text-gray-400">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, ipsam facere adipisci provident
+                    sunt voluptate laborum natus nihil. Minus doloremque harum optio, illo cupiditate maxime.
+                </p>
+                <button
+                    class="discover_btn mt-6 inline-block bg-yellow-500  py-3 px-6 rounded hover:bg-yellow-600 font-bold ">Discover
+                    More</button>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 w-full  gap-6 mt-9">
+            <div class="p-6 flex flex-col gap-4 bg-white shadow shadow-lg">
+                <i class="fas fa-book blue text-2xl"></i>
+                <h2 class="text-2xl text-gray-600 font-bold">Business Strategy</h2>
+                <p class="text-gray-400">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet illo, facere quibusdam magni
+                    accusantium, non veritatis tempora error.
+                </p>
+            </div>
+            <div class="p-6 flex flex-col gap-4 bg-white shadow shadow-lg">
+                <i class="fas fa-book blue text-2xl"></i>
+                <h2 class="text-2xl text-gray-600 font-bold">Business Strategy</h2>
+                <p class="text-gray-400">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet illo, facere quibusdam magni
+                    accusantium, non veritatis tempora error.
+                </p>
+            </div>
+            <div class="p-6 flex flex-col gap-4 bg-white shadow shadow-lg">
+                <i class="fas fa-book blue text-2xl"></i>
+                <h2 class="text-2xl text-gray-600 font-bold">Business Strategy</h2>
+                <p class="text-gray-400">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet illo, facere quibusdam magni
+                    accusantium, non veritatis tempora error.
+                </p>
+            </div>
+            <div class="p-6 flex flex-col gap-4 bg-white shadow shadow-lg">
+                <i class="fas fa-book blue text-2xl"></i>
+                <h2 class="text-2xl text-gray-600 font-bold">Business Strategy</h2>
+                <p class="text-gray-400">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet illo, facere quibusdam magni
+                    accusantium, non veritatis tempora error.
+                </p>
+            </div>
+            <div class="p-6 flex flex-col gap-4 bg-white shadow shadow-lg">
+                <i class="fas fa-book blue text-2xl"></i>
+                <h2 class="text-2xl text-gray-600 font-bold">Business Strategy</h2>
+                <p class="text-gray-400">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet illo, facere quibusdam magni
+                    accusantium, non veritatis tempora error.
+                </p>
+            </div>
+            <div class="p-6 flex flex-col gap-4 bg-white shadow shadow-lg">
+                <i class="fas fa-book blue text-2xl"></i>
+                <h2 class="text-2xl text-gray-600 font-bold">Business Strategy</h2>
+                <p class="text-gray-400">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet illo, facere quibusdam magni
+                    accusantium, non veritatis tempora error.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="video grid grid-cols-1 md:grid-cols-2 w-full md:p-12 p-4 gap-4">
+        <div class="video_container">
+            <div class="circle">
+                <i class="fas fa-play"></i>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="absolute inset-0 bg-cover bg-top"
+                style="background-image: url('./asset/istockphoto-541114144-612x612.jpg');"></div>
+            <!-- Overlay -->
+            <div class="absolute inset-0 connect"></div>
+            <div class="relative z-10 p-8 text-white">
+                <h1 class="text-3xl font-bold">From strategy to delivery, on <br> time every time.</h1>
+                <p class="my-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas nobis officiis iure
+                    cupiditate maiores aspernatur, velit impedit excepturi itaque consequatur.</p>
+                <div class="flex gap-4 mb-4">
+                    <i class="fa fa-line-chart text-4xl text-yellow-500" aria-hidden="true"></i>
+                    <div class="flex flex-col">
+                        <h3 class="font-bold">Focus on business efficiency</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi magni culpa distinctio.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <i class="fa fa-wifi text-4xl text-yellow-500" aria-hidden="true"></i>
+                    <div class="flex flex-col">
+                        <h3 class="font-bold">Focus on Plan target</h3>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi magni culpa distinctio.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full flex flex-col items-center justify-center p-4 md:p-24">
+        <h4 class="blue font-bold">WHY CHOOSE US</h4>
+        <h1 class="font-bold text-3xl text-gray-600 mt-4">Developing solutions for the future.</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-4 mt-12">
+            <div class="bg-white">
+                <div class="top flex justify-center gap-3 p-4">
+                    <i class="fas fa-building blue text-3xl"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-600">National top 50 consulting</h4>
+                        <p class=" text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <img src="./asset/istockphoto-541114144-612x612.jpg" alt="">
+                <p class=" text-gray-400 p-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatibus quasi enim error
+                    distinctio necessitatibus possimus doloribus magni quos excepturi.
+                </p>
+                <div class="btn w-full bg-yellow-500 flex items-center justify-center font-bold text-gray-600 py-3">
+                    Learn more
+                </div>
+            </div>
+            <div class="bg-white">
+                <div class="top flex justify-center gap-3 p-4">
+                    <i class="fas fa-building blue text-3xl"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-600">National top 50 consulting</h4>
+                        <p class=" text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <img src="./asset/businessmeetinginanoffic_202974.jpg" alt="">
+                <p class=" text-gray-400 p-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatibus quasi enim error
+                    distinctio necessitatibus possimus doloribus magni quos excepturi.
+                </p>
+                <div class="btn w-full bg-yellow-500 flex items-center justify-center font-bold text-gray-600 py-3">
+                    Learn more
+                </div>
+            </div>
+            <div class="bg-white">
+                <div class="top flex justify-center gap-3 p-4">
+                    <i class="fas fa-building blue text-3xl"></i>
+                    <div>
+                        <h4 class="font-bold text-gray-600">National top 50 consulting</h4>
+                        <p class=" text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <img src="./asset/Internal-business-meeting.webp" alt="">
+                <p class=" text-gray-400 p-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatibus quasi enim error
+                    distinctio necessitatibus possimus doloribus magni quos excepturi.
+                </p>
+                <div class="btn w-full bg-yellow-500 flex items-center justify-center font-bold text-gray-600 py-3">
+                    Learn more
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="relative main2">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-top hidden md:flex"
+            style="background-image: url('./asset/Business-Meeting-Tips-for-Meeting-Americans.webp');"></div>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 connect hidden md:flex"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 p-8 text-white hidden md:flex">
+            <div class="circle2 bg-white">
+                <i class="fas fa-play blue"></i>
+            </div>
+        </div>
+        <div
+            class="sm:absolute md:top-24 top-8 md:left-9 relative  md:max-w-md z-10 mx-4 md:mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-blue-500 uppercase text-sm tracking-wide font-semibold">Abilities</h2>
+            <h1 class="text-2xl font-bold text-gray-900 my-4">We help you to solve your problems.</h1>
+            <p class="text-gray-600 mb-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,
+                pulvinar dapibus leo.
+            </p>
+
+            <!-- Progress Bar Section -->
+            <div class="space-y-6">
+                <!-- Business Growth -->
+                <div>
+                    <div class="flex justify-between text-sm font-semibold text-gray-700">
+                        <span>Business Growth</span>
+                        <span>87%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 h-2 rounded-full mt-1">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: 87%;"></div>
+                    </div>
+                </div>
+
+                <!-- Business Plan Project -->
+                <div>
+                    <div class="flex justify-between text-sm font-semibold text-gray-700">
+                        <span>Business Plan Project</span>
+                        <span>72%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 h-2 rounded-full mt-1">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: 72%;"></div>
+                    </div>
+                </div>
+
+                <!-- Tax Project -->
+                <div>
+                    <div class="flex justify-between text-sm font-semibold text-gray-700">
+                        <span>Tax Project</span>
+                        <span>89%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 h-2 rounded-full mt-1">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: 89%;"></div>
+                    </div>
+                </div>
+
+                <!-- Project Manager -->
+                <div>
+                    <div class="flex justify-between text-sm font-semibold text-gray-700">
+                        <span>Project Manager</span>
+                        <span>63%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 h-2 rounded-full mt-1">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: 63%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-gray-600 mt-6">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis,
+                pulvinar dapibus leo.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Main Content Section -->
+    <section class="max-w-7xl mx-auto p-8 grid grid-cols-1 md:grid-cols-2 gap-8 md:mt-48 mt-8">
+
+        <!-- Contact Our Sales Section -->
+        <div class="bg-blue-500 text-white p-8 rounded-lg">
+            <h2 class="text-sm uppercase tracking-widest mb-4">Get in Touch</h2>
+            <h1 class="text-3xl font-bold mb-6">Contact our sales</h1>
+            <p class="mb-6">Justo mauris sit fermentum mus natoque quis lacinia adipiscing tempus.</p>
+            <p class="text-lg font-bold mb-4">sales@yourdomain.tld</p>
+            <p class="text-2xl font-bold mb-6">888-7447-234</p>
+            <button class="bg-yellow-500 text-black font-semibold px-6 py-2 rounded-lg">Chat Sales ID</button>
+        </div>
+
+        <!-- Get Free a Quote Section -->
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold mb-4">Get free a quote</h1>
+            <p class="text-gray-600 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+            <form action="" method="POST">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <input class="border border-gray-300 p-3 rounded-lg" type="text" placeholder="Name" required>
+                    <input class="border border-gray-300 p-3 rounded-lg" type="email" placeholder="Email" required>
+                </div>
+                <textarea class="border border-gray-300 p-3 rounded-lg w-full mb-4" rows="4"
+                    placeholder="Message"></textarea>
+                <button type="submit" class="bg-yellow-400 text-black font-semibold px-6 py-3 rounded-lg w-full">Free a
+                    quote 📝</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section class="bg-blue-500 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="text-center md:text-left mb-6 md:mb-0">
+                <h2 class="text-2xl font-semibold">Signup our newsletter to get update information, news, insight or
+                    promotions.</h2>
+            </div>
+            <div class="flex md:flex-row gap-3 space-x-4 flex-col">
+                <input class="p-3 rounded-lg text-black" type="email" placeholder="Email">
+                <button class="bg-yellow-500 text-black md:px-6 px-8 py-3 rounded-lg font-semibold">Sign Up</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+
+            <!-- Footer Column 1: Company Info -->
+            <div>
+                <h2 class="text-3xl font-bold text-blue-600">busima</h2>
+                <p class="text-gray-600 mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                    luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                <p class="mt-4 font-semibold text-blue-600">Need help? Call us</p>
+                <p class="font-bold text-blue-800">800-846-234</p>
+            </div>
+
+            <!-- Footer Column 2: Services -->
+            <div>
+                <h3 class="font-bold mb-4">Services</h3>
+                <ul class="text-gray-600 space-y-2">
+                    <li>Business Strategy</li>
+                    <li>Financial Planning</li>
+                    <li>Project Management</li>
+                    <li>Tax Consulting</li>
+                    <li>Audit & Evaluation</li>
+                    <li>Quality Resourcing</li>
+                </ul>
+            </div>
+
+            <!-- Footer Column 3: Company -->
+            <div>
+                <h3 class="font-bold mb-4">Company</h3>
+                <ul class="text-gray-600 space-y-2">
+                    <li>About us</li>
+                    <li>Leadership</li>
+                    <li>Careers</li>
+                    <li>News & Articles</li>
+                    <li>Legal Notice</li>
+                </ul>
+            </div>
+
+            <!-- Footer Column 4: Get in Touch -->
+            <div>
+                <h3 class="font-bold mb-4">Get in Touch</h3>
+                <p class="text-gray-600">Jln Cempaka Wangi No 22<br>Jakarta - Indonesia</p>
+                <p class="text-gray-600 mt-4">support@yourdomain.tld</p>
+                <p class="text-gray-600">+6221.2002.2012</p>
+            </div>
+
+        </div>
+    </footer>
+    <div class="container mx-auto text-center p-2">
+        <p>&copy; 2024 Busima. All rights reserved. Developed by <b class="blue">JoeCode</b></p>
+    </div>
+
+
+
+
+
+
+    <!-- <header class="bg-blue-600">
+    <div class="container mx-auto p-6 flex justify-between items-center">
+      <h1 class="text-white text-2xl font-bold">busima</h1>
+      <nav>
+        <ul class="flex space-x-6 text-white">
+          <li><a href="#" class="hover:text-gray-300">Home</a></li>
+          <li><a href="#" class="hover:text-gray-300">About</a></li>
+          <li><a href="#" class="hover:text-gray-300">Services</a></li>
+          <li><a href="#" class="hover:text-gray-300">Portfolio</a></li>
+          <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+          <li><button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded">Get Started</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  Footer -->
+    <!-- <footer class="bg-blue-600 py-8 text-white">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Busima. All rights reserved. </p>
+    </div>
+  </footer> -->
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const menu = document.getElementById('mobile-menu');
+
+        // Show the menu
+        menuToggle.addEventListener('click', function () {
+            menu.classList.remove('hidden');
+            setTimeout(() => {
+                menu.classList.remove('opacity-0', '-translate-y-full');
+            }, 10); // Slight delay to trigger the transition effect
+        });
+
+        // Hide the menu
+        menuClose.addEventListener('click', function () {
+            menu.classList.add('opacity-0', '-translate-y-full');
+            setTimeout(() => {
+                menu.classList.add('hidden');
+            }, 500); // Match the transition duration
+        });
+
+    </script>
+</body>
+
+</html>

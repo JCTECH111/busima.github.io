@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+    list-style: none;
+    text-decoration: none;
+}
+
+.view_box {
+    background-image: linear-gradient(to right, rgba(10, 7, 187, 0.6), rgba(10, 7, 187, 0.356), rgba(255, 255, 255, 0)), url('./asset/f0230704-800px-wm.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.discover_btn {
+    width: 5cm;
+}
+
+.blue {
+    color: rgb(98, 152, 240);
+}
+
+
+.features {
+    top: 13cm;
+}
+
+.grid_container {
+    height: 20cm;
+    padding: 3cm;
+}
+
+.grid-bg {
+    background-image: url('./asset/Business-Meeting-Tips-for-Meeting-Americans.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .rating {
+        position: absolute;
+        bottom: 3rem;
+        right: 2rem;
+    }
+}
+
+.connect {
+    background: rgba(26, 22, 218, 0.6);
+}
+
+.main {
+    height: 12cm;
+}
+
+.main2 {
+    height: 13cm;
+}
+
+.discover_child {
+    left: 20%;
+    top: 10cm;
+}
+
+.video_container {
+    background-image: url('./asset/officeworkers-1024x480.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 10cm;
+
+    .circle {
+        height: 4rem;
+        width: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 2px solid white;
+        font-size: 1.2rem;
+        position: relative;
+        top: 40%;
+        left: 50%;
+    }
+}
+
+.circle2 {
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    color: blue;
+    position: relative;
+    top: 5cm;
+    left: 70%;
+    cursor: pointer;
+}
+
+@media (min-width: 640px) {
+    .sm\:h-3cm {
+        height: 14.6cm;
+    }
+
+}
+
+@media (max-width: 640px) {
+    .grid_container {
+        padding: 1rem;
+        height: auto;
+
+        .grid-bg {
+            height: 5cm;
+        }
+
+        .rating {
+            position: absolute;
+            bottom: -0rem;
+            right: 0rem;
+        }
+    }
+
+    section {
+        overflow-x: hidden;
+    }
+
+    .main2 {
+        height: auto;
+    }
+
+}
+
+
+
+
+
+
+
+
